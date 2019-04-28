@@ -32,7 +32,7 @@
                 'type' => 'information',
                 'entry' => $message
             ));
-            $j_entry = sprintf('%s\r\n' . $j_entry);
+            $j_entry = sprintf('%s\r\n', $j_entry);
 
             $log_file = fopen(Utilities::getLogLocation($module_name, 'log'), 'r');
             fwrite($log_file, $entry);

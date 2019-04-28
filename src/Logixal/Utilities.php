@@ -26,7 +26,7 @@
             }
             catch(ConfigurationNotFoundException $configurationNotFoundException)
             {
-                throw;
+                throw $configurationNotFoundException;
             }
 
             $today_directory = $logging_directory . DIRECTORY_SEPARATOR . date("Y-m-d");
