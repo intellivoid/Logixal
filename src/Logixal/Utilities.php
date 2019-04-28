@@ -17,6 +17,7 @@
          * Construct the directories and files for the module
          *
          * @return string
+         * @throws ConfigurationNotFoundException
          */
         public static function loggingDirectory()
         {
@@ -45,6 +46,7 @@
          * @param string $module_name
          * @param string $file_type
          * @return string
+         * @throws ConfigurationNotFoundException
          */
         public static function getLogLocation(string $module_name, string $file_type = 'log'): string
         {
@@ -53,7 +55,7 @@
             $log_name = str_ireplace('.', '_', $log_name);
 
             $active_directory = self::loggingDirectory();
-            $log_file = sprintf('%.%s', $active_directory. DIRECTORY_SEPARATOR . $log_name, $file_type);
+            $log_file = sprintf('%s.%s', $active_directory. DIRECTORY_SEPARATOR . $log_name, $file_type);
 
             if(file_exists($log_file) == false)
             {
@@ -71,6 +73,7 @@
          * @param string $sub_name
          * @param string $file_type
          * @return string
+         * @throws ConfigurationNotFoundException
          */
         public static function getSubLogLocation(string $module_name, string $sub_name, string $file_type = 'log'): string
         {

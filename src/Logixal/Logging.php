@@ -20,6 +20,7 @@
          * @param MessageTypes|string $type
          * @param bool $include_sub
          * @param string $sub_name
+         * @throws Exceptions\ConfigurationNotFoundException
          */
         private static function write_entry(string $module_name, string $message, string $type, bool $include_sub = false, string $sub_name = 'none')
         {
@@ -55,6 +56,7 @@
          *
          * @param string $module_name
          * @param string $message
+         * @throws Exceptions\ConfigurationNotFoundException
          */
         public static function information(string $module_name, string $message)
         {
@@ -69,6 +71,7 @@
          *
          * @param string $module_name
          * @param string $message
+         * @throws Exceptions\ConfigurationNotFoundException
          */
         public static function warning(string $module_name, string $message)
         {
@@ -83,6 +86,7 @@
          *
          * @param string $module_name
          * @param string $message
+         * @throws Exceptions\ConfigurationNotFoundException
          */
         public static function error(string $module_name, string $message)
         {
@@ -98,6 +102,7 @@
          *
          * @param string $module_name
          * @param string $message
+         * @throws Exceptions\ConfigurationNotFoundException
          */
         public static function success(string $module_name, string $message)
         {
