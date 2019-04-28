@@ -33,21 +33,14 @@
                 'type' => 'information',
                 'entry' => $message
             ));
-            $j_entry = sprintf('%s\r\n', $j_entry);
+            $j_entry = sprintf("%s\r\n", $j_entry);
 
-            $log_file = fopen(Utilities::getLogLocation($module_name, 'log'), 'r');
-            fwrite($log_file, $entry);
-            fclose($log_file);
-
-            $jlog_file = fopen(Utilities::getLogLocation($module_name, 'jlog'), 'r');
-            fwrite($jlog_file, $j_entry);
-            fclose($jlog_file);
+            file_put_contents(Utilities::getLogLocation($module_name, 'log'), $entry, FILE_APPEND);
+            file_put_contents(Utilities::getLogLocation($module_name, 'jlog'), $j_entry, FILE_APPEND);
 
             if($include_sub == true)
             {
-                $log_file = fopen(Utilities::getSubLogLocation($module_name, $sub_name, 'log'), 'r');
-                fwrite($log_file, $entry);
-                fclose($log_file);
+                file_put_contents(Utilities::getSubLogLocation($module_name, $sub_name, 'log'), $entry, FILE_APPEND);
             }
         }
 
